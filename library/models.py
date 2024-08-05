@@ -98,7 +98,8 @@ class Member(models.Model):
     email = models.EmailField(unique=True)
     gender = models.CharField(max_length=50, choices=GENDER_CHOICES)
     birth_date = models.DateField()
-    age = models.IntegerField(validators=[MinValueValidator(6), MaxValueValidator(120)])
+    age = models.IntegerField(validators=[MinValueValidator(6), MaxValueValidator(120)],
+                          error_messages={'min_value': 'Please more', 'max_value': 'Please less!!!!!!!'})
     role = models.CharField(max_length=20, choices=ROLE_CHOICES)
     active = models.BooleanField(default=True)
     libraries = models.ManyToManyField('Library', related_name='members')
