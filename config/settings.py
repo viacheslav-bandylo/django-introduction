@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'first_app.apps.FirstAppConfig',
     'library.apps.LibraryConfig',
+    'practice_five.apps.PracticeFiveConfig',
 ]
 
 MIDDLEWARE = [
