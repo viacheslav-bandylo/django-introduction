@@ -6,30 +6,30 @@ from django.contrib.auth.models import PermissionsMixin, UserManager
 from django.utils.translation import gettext_lazy as _
 
 
-class CustomUser(AbstractBaseUser, PermissionsMixin):
-    username = models.CharField(max_length=30, unique=True)
-    email = models.EmailField(_('email address'), unique=True)
-    first_name = models.CharField(_('first name'), max_length=30, blank=True)
-    last_name = models.CharField(_('last name'), max_length=30, blank=True)
-    is_staff = models.BooleanField(default=False)
-    is_active = models.BooleanField(default=True)
-    date_joined = models.DateTimeField(default=timezone.now)
-    birth_date = models.DateField(null=True, blank=True)
-
-    objects = UserManager() # использование стандартного менеджера пользователей
-
-    USERNAME_FIELD = 'username'	# какое поле будет использоваться в качестве уникального идентификатора
-    REQUIRED_FIELDS = ['email', 'birth_date']	# список полей, которые должны быть обязательными при создании суперпользователя
-
-    def __str__(self):
-        return self.email
+# class CustomUser(AbstractBaseUser, PermissionsMixin):
+#     username = models.CharField(max_length=30, unique=True)
+#     email = models.EmailField(_('email address'), unique=True)
+#     first_name = models.CharField(_('first name'), max_length=30, blank=True)
+#     last_name = models.CharField(_('last name'), max_length=30, blank=True)
+#     is_staff = models.BooleanField(default=False)
+#     is_active = models.BooleanField(default=True)
+#     date_joined = models.DateTimeField(default=timezone.now)
+#     birth_date = models.DateField(null=True, blank=True)
+#
+#     objects = UserManager() # использование стандартного менеджера пользователей
+#
+#     USERNAME_FIELD = 'username'	# какое поле будет использоваться в качестве уникального идентификатора
+#     REQUIRED_FIELDS = ['email', 'birth_date']	# список полей, которые должны быть обязательными при создании суперпользователя
+#
+#     def __str__(self):
+#         return self.email
 
 
 class Post(models.Model):
     title = models.CharField(max_length=200)
     content = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
-    author = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.title
