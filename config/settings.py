@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'first_app.apps.FirstAppConfig',
     'library.apps.LibraryConfig',
     'practice_five.apps.PracticeFiveConfig',
+    'practicum_two.apps.PracticumTwoConfig',
 ]
 
 MIDDLEWARE = [
