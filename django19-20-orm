@@ -1,9 +1,0 @@
-# Run shell
-python manage.py shell
-
-# Import models
-from practice_five.models import *
-
-# Get all objects from table
-all_orders = Order.objects.all()
-all_categories = Category.objects.all()

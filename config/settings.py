@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'library.apps.LibraryConfig',
     'practice_five.apps.PracticeFiveConfig',
     'practicum_two.apps.PracticumTwoConfig',
+    'django_orm.apps.DjangoOrmConfig',
 ]
 
 MIDDLEWARE = [
