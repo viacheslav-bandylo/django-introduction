@@ -7,6 +7,7 @@ class Project(models.Model):
     title = models.CharField(max_length=100, unique=True)
     description = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
+    files = models.ManyToManyField('ProjectFile', related_name='projects', null=True, blank=True)
 
     class Meta:
         ordering = ['-title']
@@ -70,3 +71,10 @@ class ProjectFile(models.Model):
 
     def __str__(self):
         return self.title
+
+
+back_tag = Tag.objects.get(title='Backend')
+devops_tag = Tag.objects.get(title='DevOPS')
+designer_tag = Tag.objects.get(title='Design')
+front_tag = Tag.objects.get(title='Frontend')
+qa_tag = Tag.objects.get(title='Q&A')
